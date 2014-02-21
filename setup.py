@@ -51,12 +51,12 @@ for dirpath, dirnames, filenames in os.walk(tagging_dir):
 
 
 setup(
-    name = 'django-tagging',
+    name = 'django-tagging2',
     version = tagging.get_version(),
     description = 'Generic tagging application for Django',
-    author = 'Jonathan Buchanan',
-    author_email = 'jonathan.buchanan@gmail.com',
-    url = 'http://code.google.com/p/django-tagging/',
+    author = 'Jonathan Buchanan, Aaron Allred',
+    author_email = 'digicyc@gmail.com',
+    url = 'https://github.com/digicyc/django-tagging2',
     packages = packages,
     data_files = data_files,
     classifiers = ['Development Status :: 4 - Beta',
