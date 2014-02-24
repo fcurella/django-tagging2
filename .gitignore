@@ -1,6 +1,8 @@
 *.class
 *.pyc
 *.swp
+*.swo
+*.sw*
 *.DS_Store
 *.tmproj
 *.kpf
