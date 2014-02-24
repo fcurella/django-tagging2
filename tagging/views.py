@@ -3,19 +3,15 @@ Tagging related views.
 """
 from django.http import Http404
 from django.utils.translation import ugettext as _
-#from django.views.generic.list_detail import object_list
 from django.views.generic.list import ListView
 
 from tagging.models import Tag, TaggedItem
 from tagging.utils import get_tag, get_queryset_and_model
 
 
-
 class TaggedListView(ListView):
-    
-    # Write a test for this
-    #TODO: Maybe put this in __init__ ?
-    def tagged_object_list(self, request, queryset_or_model=None, tag=None,
+
+    def __call__(self, request, queryset_or_model=None, tag=None,
             related_tags=False, related_tag_counts=True, **kwargs):
         """
         A thin wrapper around
@@ -58,4 +54,15 @@ class TaggedListView(ListView):
                                               counts=related_tag_counts)
 
         return self.object_list(request, queryset, **kwargs)
+
+
+def tagged_object_list(self, request, queryset_or_model=None, tag=None,
+        related_tags=False, related_tag_counts=True, **kwargs):
+        qs_or_model = queryset_or_model
+        this_tag = tag
+        rel_tags = related_tags
+        rel_tags_counts = related_tag_counts
+
+        return TaggedListView(request, queryset_or_model=qs_or_model, tag=this_tag,
+            related_tags=rel_tags, related_tag_counts=rel_tag_counts, **kwargs)
 
