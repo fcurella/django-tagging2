@@ -56,7 +56,7 @@ class TaggedListView(ListView):
         return self.object_list(request, queryset, **kwargs)
 
 
-def tagged_object_list(self, request, queryset_or_model=None, tag=None,
+def tagged_object_list(request, queryset_or_model=None, tag=None,
         related_tags=False, related_tag_counts=True, **kwargs):
 
         return TaggedListView(request, queryset_or_model, tag,
