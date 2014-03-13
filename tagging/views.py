@@ -11,7 +11,7 @@ from tagging.utils import get_tag, get_queryset_and_model
 
 class TaggedListView(ListView):
 
-    def __call__(self, request, queryset_or_model=None, tag=None,
+    def __init__(self, request, queryset_or_model=None, tag=None,
             related_tags=False, related_tag_counts=True, **kwargs):
         """
         A thin wrapper around
@@ -59,6 +59,8 @@ class TaggedListView(ListView):
 def tagged_object_list(request, queryset_or_model=None, tag=None,
         related_tags=False, related_tag_counts=True, **kwargs):
 
-        return TaggedListView(request, queryset_or_model, tag,
+        tagged_list = TaggedListView(request, queryset_or_model, tag,
             related_tags, related_tag_counts, **kwargs)
+
+        return tagged_list
 
